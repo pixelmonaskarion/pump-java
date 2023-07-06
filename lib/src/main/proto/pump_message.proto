@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option java_package = "com.chrissytopher.pump.proto";
+
+message ID {
+  string id = 1;
+}
+
+message Packet {
+  PacketType type = 1;
+  ID packet_id = 2;
+  Address sender = 3;
+  EncryptedMessage user_message = 4;
+  Reaction reaction = 5;
+  ReadReceipt read_receipt = 6;
+  KeyExchange key_exchange = 7;
+}
+
+enum PacketType { 
+  MessagePacket = 0;
+  ReactionPacket = 1;
+  ReadReceiptPacket = 2;
+  KeyExchangePacket = 3;
+}
+
+message KeyExchange {
+  string exchange_url = 1;
+}
+
+message EncryptedMessage {
+  EncryptedMessageType type = 1;
+  bytes message_bytes = 3;
+}
+
+enum EncryptedMessageType {
+  NotEncrypted = 0;
+  FullEncryption = 1;
+  EncryptedText = 2;
+}
+
+message Message {
+  string text = 1;
+  repeated Attachment attachments = 2;
+  ID message_id = 3;
+  repeated Address recipients = 4;
+  int64 sent_timestamp = 5;
+  ID reply_to = 6;
+}
+
+message Reaction {
+  string reaction = 1;
+  ID message_id = 2;
+}
+
+message ReadReceipt {
+  ReadReceiptType type = 1;
+  ID message_id = 2;
+}
+
+enum ReadReceiptType {
+  Delivered = 0;
+  Read = 1;
+}
+
+message Address {
+  string address = 1;
+}
+
+message Attachment {
+  string url = 1;
+  string mime_type = 2;
+  string file_name = 3;
+}
+
+//build command
+//protoc --java_out=../java pump_message.proto
