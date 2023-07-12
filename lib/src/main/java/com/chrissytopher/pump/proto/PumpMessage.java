@@ -3830,6 +3830,21 @@ public final class PumpMessage {
      * <code>.ID reply_to = 6;</code>
      */
     com.chrissytopher.pump.proto.PumpMessage.IDOrBuilder getReplyToOrBuilder();
+
+    /**
+     * <code>.Address sender = 7;</code>
+     * @return Whether the sender field is set.
+     */
+    boolean hasSender();
+    /**
+     * <code>.Address sender = 7;</code>
+     * @return The sender.
+     */
+    com.chrissytopher.pump.proto.PumpMessage.Address getSender();
+    /**
+     * <code>.Address sender = 7;</code>
+     */
+    com.chrissytopher.pump.proto.PumpMessage.AddressOrBuilder getSenderOrBuilder();
   }
   /**
    * Protobuf type {@code Message}
@@ -4055,6 +4070,32 @@ public final class PumpMessage {
       return getReplyTo();
     }
 
+    public static final int SENDER_FIELD_NUMBER = 7;
+    private com.chrissytopher.pump.proto.PumpMessage.Address sender_;
+    /**
+     * <code>.Address sender = 7;</code>
+     * @return Whether the sender field is set.
+     */
+    @java.lang.Override
+    public boolean hasSender() {
+      return sender_ != null;
+    }
+    /**
+     * <code>.Address sender = 7;</code>
+     * @return The sender.
+     */
+    @java.lang.Override
+    public com.chrissytopher.pump.proto.PumpMessage.Address getSender() {
+      return sender_ == null ? com.chrissytopher.pump.proto.PumpMessage.Address.getDefaultInstance() : sender_;
+    }
+    /**
+     * <code>.Address sender = 7;</code>
+     */
+    @java.lang.Override
+    public com.chrissytopher.pump.proto.PumpMessage.AddressOrBuilder getSenderOrBuilder() {
+      return getSender();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4087,6 +4128,9 @@ public final class PumpMessage {
       if (replyTo_ != null) {
         output.writeMessage(6, getReplyTo());
       }
+      if (sender_ != null) {
+        output.writeMessage(7, getSender());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -4118,6 +4162,10 @@ public final class PumpMessage {
       if (replyTo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getReplyTo());
+      }
+      if (sender_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getSender());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4152,6 +4200,11 @@ public final class PumpMessage {
         if (!getReplyTo()
             .equals(other.getReplyTo())) return false;
       }
+      if (hasSender() != other.hasSender()) return false;
+      if (hasSender()) {
+        if (!getSender()
+            .equals(other.getSender())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4183,6 +4236,10 @@ public final class PumpMessage {
       if (hasReplyTo()) {
         hash = (37 * hash) + REPLY_TO_FIELD_NUMBER;
         hash = (53 * hash) + getReplyTo().hashCode();
+      }
+      if (hasSender()) {
+        hash = (37 * hash) + SENDER_FIELD_NUMBER;
+        hash = (53 * hash) + getSender().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -4342,6 +4399,12 @@ public final class PumpMessage {
           replyTo_ = null;
           replyToBuilder_ = null;
         }
+        if (senderBuilder_ == null) {
+          sender_ = null;
+        } else {
+          sender_ = null;
+          senderBuilder_ = null;
+        }
         return this;
       }
 
@@ -4398,6 +4461,11 @@ public final class PumpMessage {
           result.replyTo_ = replyTo_;
         } else {
           result.replyTo_ = replyToBuilder_.build();
+        }
+        if (senderBuilder_ == null) {
+          result.sender_ = sender_;
+        } else {
+          result.sender_ = senderBuilder_.build();
         }
         onBuilt();
         return result;
@@ -4512,6 +4580,9 @@ public final class PumpMessage {
         if (other.hasReplyTo()) {
           mergeReplyTo(other.getReplyTo());
         }
+        if (other.hasSender()) {
+          mergeSender(other.getSender());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -4588,6 +4659,13 @@ public final class PumpMessage {
 
                 break;
               } // case 50
+              case 58: {
+                input.readMessage(
+                    getSenderFieldBuilder().getBuilder(),
+                    extensionRegistry);
+
+                break;
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5428,6 +5506,125 @@ public final class PumpMessage {
           replyTo_ = null;
         }
         return replyToBuilder_;
+      }
+
+      private com.chrissytopher.pump.proto.PumpMessage.Address sender_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.chrissytopher.pump.proto.PumpMessage.Address, com.chrissytopher.pump.proto.PumpMessage.Address.Builder, com.chrissytopher.pump.proto.PumpMessage.AddressOrBuilder> senderBuilder_;
+      /**
+       * <code>.Address sender = 7;</code>
+       * @return Whether the sender field is set.
+       */
+      public boolean hasSender() {
+        return senderBuilder_ != null || sender_ != null;
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       * @return The sender.
+       */
+      public com.chrissytopher.pump.proto.PumpMessage.Address getSender() {
+        if (senderBuilder_ == null) {
+          return sender_ == null ? com.chrissytopher.pump.proto.PumpMessage.Address.getDefaultInstance() : sender_;
+        } else {
+          return senderBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      public Builder setSender(com.chrissytopher.pump.proto.PumpMessage.Address value) {
+        if (senderBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sender_ = value;
+          onChanged();
+        } else {
+          senderBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      public Builder setSender(
+          com.chrissytopher.pump.proto.PumpMessage.Address.Builder builderForValue) {
+        if (senderBuilder_ == null) {
+          sender_ = builderForValue.build();
+          onChanged();
+        } else {
+          senderBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      public Builder mergeSender(com.chrissytopher.pump.proto.PumpMessage.Address value) {
+        if (senderBuilder_ == null) {
+          if (sender_ != null) {
+            sender_ =
+              com.chrissytopher.pump.proto.PumpMessage.Address.newBuilder(sender_).mergeFrom(value).buildPartial();
+          } else {
+            sender_ = value;
+          }
+          onChanged();
+        } else {
+          senderBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      public Builder clearSender() {
+        if (senderBuilder_ == null) {
+          sender_ = null;
+          onChanged();
+        } else {
+          sender_ = null;
+          senderBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      public com.chrissytopher.pump.proto.PumpMessage.Address.Builder getSenderBuilder() {
+        
+        onChanged();
+        return getSenderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      public com.chrissytopher.pump.proto.PumpMessage.AddressOrBuilder getSenderOrBuilder() {
+        if (senderBuilder_ != null) {
+          return senderBuilder_.getMessageOrBuilder();
+        } else {
+          return sender_ == null ?
+              com.chrissytopher.pump.proto.PumpMessage.Address.getDefaultInstance() : sender_;
+        }
+      }
+      /**
+       * <code>.Address sender = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.chrissytopher.pump.proto.PumpMessage.Address, com.chrissytopher.pump.proto.PumpMessage.Address.Builder, com.chrissytopher.pump.proto.PumpMessage.AddressOrBuilder> 
+          getSenderFieldBuilder() {
+        if (senderBuilder_ == null) {
+          senderBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.chrissytopher.pump.proto.PumpMessage.Address, com.chrissytopher.pump.proto.PumpMessage.Address.Builder, com.chrissytopher.pump.proto.PumpMessage.AddressOrBuilder>(
+                  getSender(),
+                  getParentForChildren(),
+                  isClean());
+          sender_ = null;
+        }
+        return senderBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8401,23 +8598,24 @@ public final class PumpMessage {
       "exchange\030\007 \001(\0132\014.KeyExchange\"#\n\013KeyExcha" +
       "nge\022\024\n\014exchange_url\030\001 \001(\t\"N\n\020EncryptedMe" +
       "ssage\022#\n\004type\030\001 \001(\0162\025.EncryptedMessageTy" +
-      "pe\022\025\n\rmessage_bytes\030\003 \001(\014\"\237\001\n\007Message\022\014\n" +
+      "pe\022\025\n\rmessage_bytes\030\003 \001(\014\"\271\001\n\007Message\022\014\n" +
       "\004text\030\001 \001(\t\022 \n\013attachments\030\002 \003(\0132\013.Attac" +
       "hment\022\027\n\nmessage_id\030\003 \001(\0132\003.ID\022\034\n\nrecipi" +
       "ents\030\004 \003(\0132\010.Address\022\026\n\016sent_timestamp\030\005" +
-      " \001(\003\022\025\n\010reply_to\030\006 \001(\0132\003.ID\"5\n\010Reaction\022" +
-      "\020\n\010reaction\030\001 \001(\t\022\027\n\nmessage_id\030\002 \001(\0132\003." +
-      "ID\"F\n\013ReadReceipt\022\036\n\004type\030\001 \001(\0162\020.ReadRe" +
-      "ceiptType\022\027\n\nmessage_id\030\002 \001(\0132\003.ID\"\032\n\007Ad" +
-      "dress\022\017\n\007address\030\001 \001(\t\"?\n\nAttachment\022\013\n\003" +
-      "url\030\001 \001(\t\022\021\n\tmime_type\030\002 \001(\t\022\021\n\tfile_nam" +
-      "e\030\003 \001(\t*a\n\nPacketType\022\021\n\rMessagePacket\020\000" +
-      "\022\022\n\016ReactionPacket\020\001\022\025\n\021ReadReceiptPacke" +
-      "t\020\002\022\025\n\021KeyExchangePacket\020\003*O\n\024EncryptedM" +
-      "essageType\022\020\n\014NotEncrypted\020\000\022\022\n\016FullEncr" +
-      "yption\020\001\022\021\n\rEncryptedText\020\002**\n\017ReadRecei" +
-      "ptType\022\r\n\tDelivered\020\000\022\010\n\004Read\020\001B\036\n\034com.c" +
-      "hrissytopher.pump.protob\006proto3"
+      " \001(\003\022\025\n\010reply_to\030\006 \001(\0132\003.ID\022\030\n\006sender\030\007 " +
+      "\001(\0132\010.Address\"5\n\010Reaction\022\020\n\010reaction\030\001 " +
+      "\001(\t\022\027\n\nmessage_id\030\002 \001(\0132\003.ID\"F\n\013ReadRece" +
+      "ipt\022\036\n\004type\030\001 \001(\0162\020.ReadReceiptType\022\027\n\nm" +
+      "essage_id\030\002 \001(\0132\003.ID\"\032\n\007Address\022\017\n\007addre" +
+      "ss\030\001 \001(\t\"?\n\nAttachment\022\013\n\003url\030\001 \001(\t\022\021\n\tm" +
+      "ime_type\030\002 \001(\t\022\021\n\tfile_name\030\003 \001(\t*a\n\nPac" +
+      "ketType\022\021\n\rMessagePacket\020\000\022\022\n\016ReactionPa" +
+      "cket\020\001\022\025\n\021ReadReceiptPacket\020\002\022\025\n\021KeyExch" +
+      "angePacket\020\003*O\n\024EncryptedMessageType\022\020\n\014" +
+      "NotEncrypted\020\000\022\022\n\016FullEncryption\020\001\022\021\n\rEn" +
+      "cryptedText\020\002**\n\017ReadReceiptType\022\r\n\tDeli" +
+      "vered\020\000\022\010\n\004Read\020\001B\036\n\034com.chrissytopher.p" +
+      "ump.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8452,7 +8650,7 @@ public final class PumpMessage {
     internal_static_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Message_descriptor,
-        new java.lang.String[] { "Text", "Attachments", "MessageId", "Recipients", "SentTimestamp", "ReplyTo", });
+        new java.lang.String[] { "Text", "Attachments", "MessageId", "Recipients", "SentTimestamp", "ReplyTo", "Sender", });
     internal_static_Reaction_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_Reaction_fieldAccessorTable = new

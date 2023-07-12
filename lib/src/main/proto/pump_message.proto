@@ -45,6 +45,7 @@ message Message {
   repeated Address recipients = 4;
   int64 sent_timestamp = 5;
   ID reply_to = 6;
+  Address sender = 7;
 }
 
 message Reaction {

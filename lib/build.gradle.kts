@@ -6,7 +6,10 @@
  * User Manual available at https://docs.gradle.org/8.0.2/userguide/building_java_projects.html
  */
 
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     // Apply the java-library plugin for API and implementation separation.
     `java-library`;
 }
@@ -34,4 +37,8 @@ dependencies {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.withType<ShadowJar> {
+    archiveFileName.set("pump-1.0.1.jar")
 }

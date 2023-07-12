@@ -23,6 +23,9 @@ public class ProtoConstructors {
 
     public static Message Message(String text, String recipients[]) {
         Message.Builder messageBuilder = Message.newBuilder();
+        if (selfAddress != null) {
+            messageBuilder.setSender(Address(selfAddress));
+        }
 
         Address[] addresses = Addresses(recipients);
         messageBuilder.addAllRecipients(Arrays.asList(addresses));
@@ -37,6 +40,9 @@ public class ProtoConstructors {
 
     public static Message Message(String text, String recipients[], Attachment attachments[]) {
         Message.Builder messageBuilder = Message.newBuilder();
+        if (selfAddress != null) {
+            messageBuilder.setSender(Address(selfAddress));
+        }
 
         Address[] addresses = Addresses(recipients);
         messageBuilder.addAllRecipients(Arrays.asList(addresses));
@@ -52,6 +58,9 @@ public class ProtoConstructors {
 
     public static Message Message(String text, String recipients[], String reply) {
         Message.Builder messageBuilder = Message.newBuilder();
+        if (selfAddress != null) {
+            messageBuilder.setSender(Address(selfAddress));
+        }
 
         Address[] addresses = Addresses(recipients);
         messageBuilder.addAllRecipients(Arrays.asList(addresses));
@@ -67,6 +76,9 @@ public class ProtoConstructors {
 
     public static Message Message(String text, String recipients[], String id, long timestamp) {
         Message.Builder messageBuilder = Message.newBuilder();
+        if (selfAddress != null) {
+            messageBuilder.setSender(Address(selfAddress));
+        }
 
         Address[] addresses = Addresses(recipients);
         messageBuilder.addAllRecipients(Arrays.asList(addresses));
